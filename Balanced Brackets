@@ -1,0 +1,84 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+
+string BalanceBrackets(string c) 
+    {
+        stack<char> stk;
+        for (auto a: c)
+        {
+            switch (a) {
+                case '(':
+                case '{':
+                case '[':
+                    stk.push(a);
+                    break;
+                case ')':
+                    if (stk.empty() || (stk.top() != '('))
+                    {
+                        return "N";
+                    }
+                    stk.pop();
+                    break;
+                 case '}':
+                    if (stk.empty() || (stk.top() != '{'))
+                    {
+                        return "N";
+                    }
+                    stk.pop();
+                    break;
+                 case ']':
+                    if (stk.empty() || (stk.top() != '['))
+                    {
+                        return "N";
+                    }
+                    stk.pop();
+                    break;
+            }
+        
+        }
+    return stk.empty() ? "Y" : "N";
+    } 
+
+void strprint(string x)
+{
+    int l = x.length();
+    for(int i=0; i<l; i++)
+    {
+        if((x.at(i) == '(') || (x.at(i) == '{') || (x.at(i) == '[') || x.at(i) == ')' || (x.at(i) == '}') || (x.at(i) == ']'))
+        cout << (x.at(i));
+    }
+}
+
+int main() {
+    
+    string s;
+    cin >> s;
+    cout << BalanceBrackets(s)<<" ";
+    strprint(s); 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    return 0;
+}
+                
