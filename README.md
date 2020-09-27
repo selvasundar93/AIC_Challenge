@@ -1,2 +1,1 @@
-# AIC_Challenge
-## HackerRank Challenges
+# HackerRank Challenges
